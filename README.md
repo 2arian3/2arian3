@@ -43,12 +43,12 @@
 
 <p align="center">
   <a href="https://github.com/2arian3/2arian3.github.io">
-    <img align="center" src="https://github-readme-stats.vercel.app/api/pin/?username=2arian3&repo=2arian3.github.io" />
+    <img align="center" src="https://github-readme-stats.vercel.app/api/pin/?username=2arian3&repo=2arian3.github.io&theme=tokyonight" />
   </a>
   <a href="https://github.com/2arian3/Cool-Programming-Challenges">
-    <img align="center" src="https://github-readme-stats.vercel.app/api/pin/?username=2arian3&repo=Cool-Programming-Challenges" />
+    <img align="center" src="https://github-readme-stats.vercel.app/api/pin/?username=2arian3&repo=Cool-Programming-Challenges&theme=tokyonight" />
   </a>
   <a href="https://github.com/mohammadsadra/OnlineStockShop">
-    <img align="center" src="https://github-readme-stats.vercel.app/api/pin/?username=mohammadsadra&repo=OnlineStockShop" />
+    <img align="center" src="https://github-readme-stats.vercel.app/api/pin/?username=mohammadsadra&repo=OnlineStockShop&theme=tokyonight" />
   </a>
 </p>
