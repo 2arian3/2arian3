@@ -7,5 +7,5 @@
 
 **About Me:**
 
-- 🌱 I’m currently working on my B.Sc. thesis of computer engineering at Amirkabir University of Technology; 
+- 🌱 I’m currently working on my B.Sc. thesis of computer engineering; 
 - 📫 How to reach me: boukani.arian@gmail.com;
