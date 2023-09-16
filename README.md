@@ -40,7 +40,7 @@
     <p align="center">
         <br>
         <img alt="Arian Boukani's GitHub Stats" width="100%"
-                src="https://github-readme-stats.vercel.app/api?username=2arian3&show_icons=true&theme=dark" />
+                src="https://github-readme-stats.vercel.app/api?username=2arian3&show_icons=true&count_private=true&theme=dark&hide_border=true" />
         <br>
         <br>
         <img alt="Arian Boukani's Most Langs" width="100%"
