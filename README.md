@@ -39,8 +39,8 @@
     <summary> <samp>&#9776; More</samp></summary>
     <p align="center">
         <br>
-        <img alt="Arian Boukani's GitHub Stats"
-                src="https://github-readme-stats.vercel.app/api?username=2arian3&show_icons=true&count_private=true&theme=tokyonight&hide_border=true" />
+        <img alt="Arian Boukani's GitHub Stats" width="100%"
+                src="https://github-readme-stats.vercel.app/api?username=2arian3&show_icons=true&count_private=true&theme=dracula&hide_border=true" />
         <br>
     </p>
 </details>
