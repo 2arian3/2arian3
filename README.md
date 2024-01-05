@@ -1,6 +1,6 @@
 <!-- Title -->
 <h3 align="center">
-        <samp>&gt; Hey Folks!, I'm
+        <samp>&gt; Hey Folks!, My name is
                 <b><a target="_blank" href="https://2arian3.github.io/">Arian Boukani</a></b>
         </samp>
 </h3>
