@@ -23,11 +23,11 @@
         </a>
         <!-- Linkedin -->
         <a href="https://www.linkedin.com/in/arian-boukani-6a0032215/" target="_blank"><img alt="Linkedin"
-                        src="https://img.shields.io/badge/linkedin-%230077B5.svg?style=flat&logo=linkedin&logoColor=white">
+                        src="https://img.shields.io/badge/Linkedin-%230077B5.svg?style=flat&logo=linkedin&logoColor=white">
         </a>
         <!-- Twitter -->
         <a href="https://twitter.com/2arian3" target="_blank"><img alt="Twitter"
-                        src="https://img.shields.io/badge/Twitter-%231DA1F2.svg?style=flat&logo=Twitter&logoColor=white">
+                        src="https://img.shields.io/badge/Twitter-black?style=flat&logo=x&logoColor=white">
         </a>
         <!-- Instagram -->
         <a href="https://www.instagram.com/2arian3/" target="_blank"><img alt="Instagram"
