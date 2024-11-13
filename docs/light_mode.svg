@@ -52,8 +52,7 @@ text, tspan {white-space: pre;}
     
     <tspan x="370" y="270" class="keyColor">Hobbies</tspan>.<tspan class="keyColor">Software</tspan>: <tspan class="valueColor">Solving Problems, Learning New Skills</tspan>
     <tspan x="370" y="290" class="keyColor">Hobbies</tspan>.<tspan class="keyColor">Hardware</tspan>: <tspan class="valueColor">Dark Soulsing, Working Out</tspan>
-    <tspan x="370" y="330" class="keyColor">Contact</tspan>:
-    <tspan x="370" y="350">———————</tspan>
+    
     <tspan x="370" y="330" class="keyColor">Contact</tspan>:
     <tspan x="370" y="350">———————</tspan>
     <tspan x="370" y="370" class="keyColor">Email</tspan>: <tspan class="valueColor">arbo@yorku.ca</tspan>
@@ -61,9 +60,9 @@ text, tspan {white-space: pre;}
     <tspan x="370" y="410" class="keyColor">Website</tspan>: <tspan class="valueColor">2arian3.github.io</tspan>
 
     <tspan x="370" y="450" class="keyColor">GitHub Stats</tspan>:
-    <tspan x="370" y="470">29</tspan>
-    <tspan x="370" y="490" class="keyColor">Repos</tspan>: <tspan class="valueColor">78</tspan> {<tspan class="keyColor">Contributed</tspan>: <tspan class="valueColor">744    </tspan>}  | <tspan class="keyColor">Commmits</tspan>: <tspan class="valueColor">98</tspan>| <tspan class="keyColor">Stars</tspan>: <tspan class="valueColor">57  </tspan>
-    <tspan x="370" y="510" class="keyColor">Followers</tspan>: <tspan class="valueColor">774,002</tspan>| <tspan class="keyColor">946,531++</tspan>: <tspan class="valueColor">172,529--</tspan> (<tspan class="addColor">945,765++</tspan>, <tspan class="delColor">172,441--</tspan>)
+    <tspan x="370" y="470">————————————</tspan>
+    <tspan x="370" y="490" class="keyColor">Repos</tspan>: <tspan class="valueColor">29</tspan> {<tspan class="keyColor">Contributed</tspan>: <tspan class="valueColor">78</tspan>}  | <tspan class="keyColor">Commmits</tspan>: <tspan class="valueColor">738    </tspan>| <tspan class="keyColor">Stars</tspan>: <tspan class="valueColor">98</tspan>
+    <tspan x="370" y="510" class="keyColor">Followers</tspan>: <tspan class="valueColor">57  </tspan>| <tspan class="keyColor">Lines of Code</tspan>: <tspan class="valueColor">773,324</tspan> (<tspan class="addColor">945,765++</tspan>, <tspan class="delColor">172,441--</tspan>)
 </text>
 
 </svg>
