@@ -10,11 +10,6 @@ text, tspan {white-space: pre;}
 
 <rect width="970px" height="530px" fill="#ffffff" rx="15"/>
 
-<!-- Adding a clickable link -->
-<a xlink:href="https://your-link-here.com" target="_blank">
-    
-</a>
-
 <text x="15" y="30" fill="#333333" class="ascii">
     <tspan x="15" y="30">          *##%%%%@@@%%%           </tspan>
     <tspan x="15" y="50">       *#%%@@%%@%@@@@@@@@@%       </tspan>
@@ -59,15 +54,11 @@ text, tspan {white-space: pre;}
     <tspan x="370" y="290" class="keyColor">Hobbies</tspan>.<tspan class="keyColor">Hardware</tspan>: <tspan class="valueColor">Dark Soulsing, Working Out</tspan>
     <tspan x="370" y="330" class="keyColor">Contact</tspan>:
     <tspan x="370" y="350">———————</tspan>
-    <a xlink:href="mailto:arbo@yorku.ca" target="_blank">
-        <tspan x="370" y="370" class="keyColor">Email</tspan>: <tspan class="valueColor">arbo@yorku.ca</tspan>
-    </a>
-    <a xlink:href="https://www.linkedin.com/in/arian-boukani-6a0032215/" target="_blank">
-        <tspan x="370" y="390" class="keyColor">LinkedIn</tspan>: <tspan class="valueColor">Click Here</tspan>
-    </a>
-    <a xlink:href="https://2arian3.github.io/" target="_blank">
-        <tspan x="370" y="410" class="keyColor">Website</tspan>: <tspan class="valueColor">Click Here</tspan>
-    </a>
+    <tspan x="370" y="330" class="keyColor">Contact</tspan>:
+    <tspan x="370" y="350">———————</tspan>
+    <tspan x="370" y="370" class="keyColor">Email</tspan>: <tspan class="valueColor">arbo@yorku.ca</tspan>
+    <tspan x="370" y="390" class="keyColor">LinkedIn</tspan>: <tspan class="valueColor">Arian Boukani</tspan>
+    <tspan x="370" y="410" class="keyColor">Website</tspan>: <tspan class="valueColor">2arian3.github.io</tspan>
 
     <tspan x="370" y="450" class="keyColor">GitHub Stats</tspan>:
     <tspan x="370" y="470">————————————</tspan>
