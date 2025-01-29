@@ -40,7 +40,7 @@ text, tspan {white-space: pre;}
 <text x="370" y="30" fill="#333333">
     <tspan x="370" y="30">Arian Boukani</tspan>
     <tspan x="370" y="50">—————————————</tspan>
-    <tspan x="370" y="70" class="keyColor">Uptime</tspan>: <tspan class="valueColor">24 years, 6 months, 19 days</tspan>
+    <tspan x="370" y="70" class="keyColor">Uptime</tspan>: <tspan class="valueColor">24 years, 6 months, 20 days</tspan>
     <tspan x="370" y="90" class="keyColor">Made In</tspan>: <tspan class="valueColor">Iran</tspan>
     <tspan x="370" y="110" class="keyColor">Location</tspan>: <tspan class="valueColor">Toronto, Ontario, Canada</tspan>
     <tspan x="370" y="130" class="keyColor">University</tspan>: <tspan class="valueColor">York University</tspan><tspan class="commentColor"> #YorkU</tspan>
