@@ -40,7 +40,7 @@ text, tspan {white-space: pre;}
 <text x="370" y="30" fill="#c9d1d9">
     <tspan x="370" y="30">Arian Boukani</tspan>
     <tspan x="370" y="50">—————————————</tspan>
-    <tspan x="370" y="70" class="keyColor">Uptime</tspan>: <tspan class="valueColor">25 years, 10 months, 15 days</tspan>
+    <tspan x="370" y="70" class="keyColor">Uptime</tspan>: <tspan class="valueColor">25 years, 10 months, 16 days</tspan>
     <tspan x="370" y="90" class="keyColor">Location</tspan>: <tspan class="valueColor">Toronto, Ontario, Canada</tspan>
     <tspan x="370" y="110" class="keyColor">University</tspan>: <tspan class="valueColor">York University</tspan><tspan class="commentColor"> #YorkU</tspan>
     <tspan x="370" y="130" class="keyColor">Major</tspan>: <tspan class="valueColor">Electrical Engineering and Computer Science</tspan><tspan class="commentColor"> #Lassonde</tspan>
@@ -60,7 +60,7 @@ text, tspan {white-space: pre;}
 
     <tspan x="370" y="430" class="keyColor">GitHub Stats</tspan>:
     <tspan x="370" y="450">————————————</tspan>
-    <tspan x="370" y="470" class="keyColor">Repos</tspan>: <tspan class="valueColor">31</tspan> {<tspan class="keyColor">Contributed</tspan>: <tspan class="valueColor">90</tspan>}  | <tspan class="keyColor">Commmits</tspan>: <tspan class="valueColor">808    </tspan>| <tspan class="keyColor">Stars</tspan>: <tspan class="valueColor">96</tspan>
+    <tspan x="370" y="470" class="keyColor">Repos</tspan>: <tspan class="valueColor">31</tspan> {<tspan class="keyColor">Contributed</tspan>: <tspan class="valueColor">92</tspan>}  | <tspan class="keyColor">Commmits</tspan>: <tspan class="valueColor">808    </tspan>| <tspan class="keyColor">Stars</tspan>: <tspan class="valueColor">96</tspan>
     <tspan x="370" y="490" class="keyColor">Followers</tspan>: <tspan class="valueColor">61  </tspan>| <tspan class="keyColor">Lines of Code</tspan>: <tspan class="valueColor">1,021,356</tspan> (<tspan class="addColor">1,203,866++</tspan>, <tspan class="delColor">182,510--</tspan>)
 </text>
 
