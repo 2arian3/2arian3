@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" font-family="Andale Mono,AndaleMono,Consolas,monospace" width="975px" height="20px" font-size="16px">
+<style>
+.keyColor {fill: #ffa657;}
+.valueColor {fill: #a5d6ff;}
+.addColor {fill: #3fb950;}
+.delColor {fill: #f85149;}
+.commentColor {fill: #8b949e;}
+text, tspan {white-space: pre;}
+</style>
+
+<rect width="970px" height="20px" fill="#161b22"/>
+
+<text x="15" y="0" fill="#c9d1d9" class="ascii">
+    <tspan x="15" y="10">       ----:::---==++***#*=       </tspan>
+</text>
+
+<text x="370" y="10" fill="#c9d1d9">
+    <tspan x="370" y="10" class="keyColor">Website</tspan>: <tspan class="valueColor">2arian3.github.io</tspan>
+</text>
+
+</svg>

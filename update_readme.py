@@ -313,24 +313,33 @@ def stars_counter(data):
     return total_stars
 
 
-def svg_overwrite(filename, age_data, commit_data, star_data, repo_data, contrib_data, follower_data, loc_data):
+def svg_overwrite_top(filename, age_data):
     """
-    Parse SVG files and update elements with my age, commits, stars, repositories, and lines written
+    Update the uptime value in the top profile SVG segment.
     """
     svg = minidom.parse(filename)
-    f = open(filename, mode='w', encoding='utf-8')
-    tspan = svg.getElementsByTagName('tspan')
-    tspan[27].firstChild.data = age_data
-    tspan[61].firstChild.data = repo_data
-    tspan[63].firstChild.data = contrib_data
-    tspan[65].firstChild.data = commit_data
-    tspan[67].firstChild.data = star_data
-    tspan[69].firstChild.data = follower_data
-    tspan[71].firstChild.data = loc_data[2]
-    tspan[72].firstChild.data = loc_data[0] + '++'
-    tspan[73].firstChild.data = loc_data[1] + '--'
-    f.write(svg.toxml('utf-8').decode('utf-8'))
-    f.close()
+    with open(filename, mode='w', encoding='utf-8') as f:
+        tspan = svg.getElementsByTagName('tspan')
+        tspan[19].firstChild.data = age_data
+        f.write(svg.toxml('utf-8').decode('utf-8'))
+
+
+def svg_overwrite_bottom(filename, commit_data, star_data, repo_data, contrib_data, follower_data, loc_data):
+    """
+    Update GitHub stats in the bottom profile SVG segment.
+    """
+    svg = minidom.parse(filename)
+    with open(filename, mode='w', encoding='utf-8') as f:
+        tspan = svg.getElementsByTagName('tspan')
+        tspan[8].firstChild.data = repo_data
+        tspan[10].firstChild.data = contrib_data
+        tspan[12].firstChild.data = commit_data
+        tspan[14].firstChild.data = star_data
+        tspan[16].firstChild.data = follower_data
+        tspan[18].firstChild.data = loc_data[2]
+        tspan[19].firstChild.data = loc_data[0] + '++'
+        tspan[20].firstChild.data = loc_data[1] + '--'
+        f.write(svg.toxml('utf-8').decode('utf-8'))
 
 
 def commit_counter(comment_size):
@@ -455,8 +464,12 @@ if __name__ == '__main__':
 
     for index in range(len(total_loc)-1): total_loc[index] = '{:,}'.format(total_loc[index]) # format added, deleted, and total LOC
 
-    svg_overwrite('docs/dark_mode.svg', age_data, commit_data, star_data, repo_data, contrib_data, follower_data, total_loc[:-1])
-    svg_overwrite('docs/light_mode.svg', age_data, commit_data, star_data, repo_data, contrib_data, follower_data, total_loc[:-1])
+    for theme in ('dark', 'light'):
+        svg_overwrite_top(f'docs/{theme}_mode_top.svg', age_data)
+        svg_overwrite_bottom(
+            f'docs/{theme}_mode_bottom.svg',
+            commit_data, star_data, repo_data, contrib_data, follower_data, total_loc[:-1],
+        )
 
     # move cursor to override 'Calculation times:' with 'Total function time:' and the total function time, then move cursor back
     print('\033[F\033[F\033[F\033[F\033[F\033[F\033[F\033[F',

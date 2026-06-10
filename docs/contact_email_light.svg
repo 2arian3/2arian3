@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" font-family="Andale Mono,AndaleMono,Consolas,monospace" width="975px" height="20px" font-size="16px">
+<style>
+.keyColor {fill: #ff7f50;}
+.valueColor {fill: #007acc;}
+.addColor {fill: #228b22;}
+.delColor {fill: #d32f2f;}
+.commentColor {fill: #555555;}
+text, tspan {white-space: pre;}
+</style>
+
+<rect width="970px" height="20px" fill="#ffffff"/>
+
+<text x="15" y="0" fill="#333333" class="ascii">
+    <tspan x="15" y="10">     -::----=+*%###***++++++      </tspan>
+</text>
+
+<text x="370" y="10" fill="#333333">
+    <tspan x="370" y="10" class="keyColor">Email</tspan>: <tspan class="valueColor">arbo@yorku.ca</tspan>
+</text>
+
+</svg>

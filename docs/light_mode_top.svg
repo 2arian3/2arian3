@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" font-family="Andale Mono,AndaleMono,Consolas,monospace" width="975px" height="550px" font-size="16px">
+<?xml version="1.0" encoding="utf-8"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" font-family="Andale Mono,AndaleMono,Consolas,monospace" width="975px" height="340px" font-size="16px">
 <style>
 .keyColor {fill: #ff7f50;}
 .valueColor {fill: #007acc;}
@@ -8,9 +8,9 @@
 text, tspan {white-space: pre;}
 </style>
 
-<rect width="970px" height="530px" fill="#ffffff" rx="15"/>
+<path d="M 15,0 H 955 Q 970,0 970,15 V 340 H 0 V 15 Q 0,0 15,0 Z" fill="#ffffff"/>
 
-<text x="15" y="30" fill="#333333" class="ascii">
+<text x="15" y="0" fill="#333333" class="ascii">
     <tspan x="15" y="30">          *##%%%%@@@%%%           </tspan>
     <tspan x="15" y="50">       *#%%@@%%@%@@@@@@@@@%       </tspan>
     <tspan x="15" y="70">      #@%%@@%%%%%%@@@@@@@@@%      </tspan>
@@ -27,14 +27,6 @@ text, tspan {white-space: pre;}
     <tspan x="15" y="290"> --::::::::::*##@%+==--====++=*== </tspan>
     <tspan x="15" y="310">  -::::::-=*@@@@@@@@%*===+++++-=+ </tspan>
     <tspan x="15" y="330">   --::::*%%%%%%%%%@%%*+=+++***=  </tspan>
-    <tspan x="15" y="350">     -::----=+*%###***++++++      </tspan>
-    <tspan x="15" y="370">      -------=*%%#***+++**+       </tspan>
-    <tspan x="15" y="390">       ----:::---==++***#*=       </tspan>
-    <tspan x="15" y="410">       :-**++#####%%%%%#*+=       </tspan>
-    <tspan x="15" y="430">       ::-=+*%%%%%%%%##*+==-      </tspan>
-    <tspan x="15" y="450">     #=:::---==+*******++==-=-#@%%</tspan>
-    <tspan x="15" y="470"> %%%%#:::::-----==****++===-+-*@@@</tspan>
-    <tspan x="15" y="490">@@@@@@#::::---=++##***++++==*@@@@@</tspan>
 </text>
 
 <text x="370" y="30" fill="#333333">
@@ -54,14 +46,6 @@ text, tspan {white-space: pre;}
     
     <tspan x="370" y="310" class="keyColor">Contact</tspan>:
     <tspan x="370" y="330">———————</tspan>
-    <tspan x="370" y="350" class="keyColor">Email</tspan>: <tspan class="valueColor">arbo@yorku.ca</tspan>
-    <tspan x="370" y="370" class="keyColor">LinkedIn</tspan>: <tspan class="valueColor">Arian Boukani</tspan>
-    <tspan x="370" y="390" class="keyColor">Website</tspan>: <tspan class="valueColor">2arian3.github.io</tspan>
-
-    <tspan x="370" y="430" class="keyColor">GitHub Stats</tspan>:
-    <tspan x="370" y="450">————————————</tspan>
-    <tspan x="370" y="470" class="keyColor">Repos</tspan>: <tspan class="valueColor">30</tspan> {<tspan class="keyColor">Contributed</tspan>: <tspan class="valueColor">87</tspan>}  | <tspan class="keyColor">Commmits</tspan>: <tspan class="valueColor">788    </tspan>| <tspan class="keyColor">Stars</tspan>: <tspan class="valueColor">96</tspan>
-    <tspan x="370" y="490" class="keyColor">Followers</tspan>: <tspan class="valueColor">62  </tspan>| <tspan class="keyColor">LoC</tspan>: <tspan class="valueColor">1,020,789</tspan> (<tspan class="addColor">1,203,187++</tspan>, <tspan class="delColor">182,398--</tspan>)
 </text>
 
 </svg>
