@@ -11,11 +11,11 @@ text, tspan {white-space: pre;}
 <rect width="970px" height="20px" fill="#161b22"/>
 
 <text x="15" y="0" fill="#c9d1d9" class="ascii">
-    <tspan x="15" y="10">       ----:::---==++***#*=       </tspan>
+    <tspan x="15" y="16">       ----:::---==++***#*=       </tspan>
 </text>
 
-<text x="370" y="10" fill="#c9d1d9">
-    <tspan x="370" y="10" class="keyColor">Website</tspan>: <tspan class="valueColor">2arian3.github.io</tspan>
+<text x="370" y="16" fill="#c9d1d9">
+    <tspan x="370" y="16" class="keyColor">Website</tspan>: <tspan class="valueColor">2arian3.github.io</tspan>
 </text>
 
 </svg>

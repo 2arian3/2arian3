@@ -11,11 +11,11 @@ text, tspan {white-space: pre;}
 <rect width="970px" height="20px" fill="#ffffff"/>
 
 <text x="15" y="0" fill="#333333" class="ascii">
-    <tspan x="15" y="10">     -::----=+*%###***++++++      </tspan>
+    <tspan x="15" y="16">     -::----=+*%###***++++++      </tspan>
 </text>
 
-<text x="370" y="10" fill="#333333">
-    <tspan x="370" y="10" class="keyColor">Email</tspan>: <tspan class="valueColor">arbo@yorku.ca</tspan>
+<text x="370" y="16" fill="#333333">
+    <tspan x="370" y="16" class="keyColor">Email</tspan>: <tspan class="valueColor">arbo@yorku.ca</tspan>
 </text>
 
 </svg>
