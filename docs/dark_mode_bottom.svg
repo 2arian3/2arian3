@@ -21,8 +21,8 @@ text, tspan {white-space: pre;}
 <text x="370" y="30" fill="#c9d1d9">
     <tspan x="370" y="30" class="keyColor">GitHub Stats</tspan>:
     <tspan x="370" y="50">————————————</tspan>
-    <tspan x="370" y="70" class="keyColor">Repos</tspan>: <tspan class="valueColor">33</tspan> {<tspan class="keyColor">Contributed</tspan>: <tspan class="valueColor">96</tspan>}  | <tspan class="keyColor">Commmits</tspan>: <tspan class="valueColor">897    </tspan>| <tspan class="keyColor">Stars</tspan>: <tspan class="valueColor">96</tspan>
-    <tspan x="370" y="90" class="keyColor">Followers</tspan>: <tspan class="valueColor">65  </tspan>| <tspan class="keyColor">LoC</tspan>: <tspan class="valueColor">1,892,443</tspan> (<tspan class="addColor">2,079,969++</tspan>, <tspan class="delColor">187,526--</tspan>)
+    <tspan x="370" y="70" class="keyColor">Repos</tspan>: <tspan class="valueColor">33</tspan> {<tspan class="keyColor">Contributed</tspan>: <tspan class="valueColor">96</tspan>}  | <tspan class="keyColor">Commmits</tspan>: <tspan class="valueColor">898    </tspan>| <tspan class="keyColor">Stars</tspan>: <tspan class="valueColor">96</tspan>
+    <tspan x="370" y="90" class="keyColor">Followers</tspan>: <tspan class="valueColor">66  </tspan>| <tspan class="keyColor">LoC</tspan>: <tspan class="valueColor">1,892,496</tspan> (<tspan class="addColor">2,080,022++</tspan>, <tspan class="delColor">187,526--</tspan>)
 </text>
 
 </svg>
