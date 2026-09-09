@@ -44,9 +44,9 @@ text, tspan {white-space: pre;}
     <tspan x="370" y="90" class="keyColor">Location</tspan>: <tspan class="valueColor">Toronto, Ontario, Canada</tspan>
     <tspan x="370" y="110" class="keyColor">University</tspan>: <tspan class="valueColor">York University</tspan><tspan class="commentColor"> #YorkU</tspan>
     <tspan x="370" y="130" class="keyColor">Major</tspan>: <tspan class="valueColor">Electrical Engineering and Computer Science</tspan><tspan class="commentColor"> #Lassonde</tspan>
-    <tspan x="370" y="150" class="keyColor">OS</tspan>: <tspan class="valueColor">MacOS, Ubuntu, Windows 10</tspan>
+    <tspan x="370" y="150" class="keyColor">OS</tspan>: <tspan class="valueColor">MacOS, Ubuntu</tspan>
     
-    <tspan x="370" y="190" class="keyColor">Languages</tspan>.<tspan class="keyColor">Programming</tspan>: <tspan class="valueColor">Python, C++, Go</tspan>
+    <tspan x="370" y="190" class="keyColor">Languages</tspan>.<tspan class="keyColor">Programming</tspan>: <tspan class="valueColor">Python, C++</tspan>
     <tspan x="370" y="210" class="keyColor">Languages</tspan>.<tspan class="keyColor">Real</tspan>: <tspan class="valueColor">English, Kurdish, Persian, German (newbie)</tspan>
     
     <tspan x="370" y="250" class="keyColor">Hobbies</tspan>.<tspan class="keyColor">Software</tspan>: <tspan class="valueColor">Solving Problems, Learning New Skills</tspan>
@@ -54,7 +54,7 @@ text, tspan {white-space: pre;}
     
     <tspan x="370" y="310" class="keyColor">Contact</tspan>:
     <tspan x="370" y="330">———————</tspan>
-    <tspan x="370" y="350" class="keyColor">Email</tspan>: <tspan class="valueColor">arbo@yorku.ca</tspan>
+    <tspan x="370" y="350" class="keyColor">Email</tspan>: <tspan class="valueColor">boukani.arian@gmail.com</tspan>
     <tspan x="370" y="370" class="keyColor">LinkedIn</tspan>: <tspan class="valueColor">Arian Boukani</tspan>
     <tspan x="370" y="390" class="keyColor">Website</tspan>: <tspan class="valueColor">2arian3.github.io</tspan>
 
