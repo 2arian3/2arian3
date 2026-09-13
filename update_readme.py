@@ -10,6 +10,34 @@ import hashlib
 HEADERS = {'authorization': 'token '+ os.environ['ACCESS_TOKEN']}
 USER_NAME = os.environ['USER_NAME']
 QUERY_COUNT = {'user_getter': 0, 'follower_getter': 0, 'graph_repos_stars': 0, 'recursive_loc': 0, 'graph_commits': 0, 'loc_query': 0}
+GRAPHQL_URL = 'https://api.github.com/graphql'
+RETRYABLE_STATUS_CODES = {502, 503, 504}
+MAX_RETRIES = 5
+
+
+def graphql_request(query, variables, retries=MAX_RETRIES):
+    """
+    POST to GitHub GraphQL, retrying transient upstream failures.
+    """
+    last_request = None
+    for attempt in range(retries):
+        try:
+            last_request = requests.post(GRAPHQL_URL, json={'query': query, 'variables': variables}, headers=HEADERS)
+        except requests.exceptions.RequestException as exc:
+            if attempt == retries - 1:
+                raise
+            wait = 2 ** attempt
+            print(f'GraphQL request error ({exc}); retrying in {wait}s...')
+            time.sleep(wait)
+            continue
+        if last_request.status_code == 200 or last_request.status_code not in RETRYABLE_STATUS_CODES:
+            return last_request
+        if attempt == retries - 1:
+            return last_request
+        wait = 2 ** attempt
+        print(f'GraphQL {last_request.status_code}; retrying in {wait}s...')
+        time.sleep(wait)
+    return last_request
 
 
 def daily_readme(birthday):
@@ -41,7 +69,7 @@ def simple_request(func_name, query, variables):
     """
     Returns a request, or raises an Exception if the response does not succeed.
     """
-    request = requests.post('https://api.github.com/graphql', json={'query': query, 'variables':variables}, headers=HEADERS)
+    request = graphql_request(query, variables)
     if request.status_code == 200:
         return request
     raise Exception(func_name, ' has failed with a', request.status_code, request.text, QUERY_COUNT)
@@ -141,7 +169,8 @@ def recursive_loc(owner, repo_name, data, cache_comment, addition_total=0, delet
         }
     }'''
     variables = {'repo_name': repo_name, 'owner': owner, 'cursor': cursor}
-    request = requests.post('https://api.github.com/graphql', json={'query': query, 'variables':variables}, headers=HEADERS) # I cannot use simple_request(), because I want to save the file before raising Exception
+    # Cannot use simple_request(): save the cache file before raising on hard failure
+    request = graphql_request(query, variables)
     if request.status_code == 200:
         if request.json()['data']['repository']['defaultBranchRef'] != None: # Only count commits if repo isn't empty
             return loc_counter_one_repo(owner, repo_name, data, cache_comment, request.json()['data']['repository']['defaultBranchRef']['target']['history'], addition_total, deletion_total, my_commits)
