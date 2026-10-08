@@ -9,7 +9,7 @@ import hashlib
 
 HEADERS = {'authorization': 'token '+ os.environ['ACCESS_TOKEN']}
 USER_NAME = os.environ['USER_NAME']
-QUERY_COUNT = {'user_getter': 0, 'follower_getter': 0, 'graph_repos_stars': 0, 'recursive_loc': 0, 'graph_commits': 0, 'loc_query': 0}
+QUERY_COUNT = {'user_getter': 0, 'follower_getter': 0, 'graph_repos_stars': 0, 'recursive_loc': 0, 'graph_commits': 0, 'loc_query': 0, 'best_streak_getter': 0, 'org_getter': 0}
 GRAPHQL_URL = 'https://api.github.com/graphql'
 RETRYABLE_STATUS_CODES = {502, 503, 504}
 MAX_RETRIES = 5
@@ -349,11 +349,11 @@ def svg_overwrite_top(filename, age_data):
     svg = minidom.parse(filename)
     with open(filename, mode='w', encoding='utf-8') as f:
         tspan = svg.getElementsByTagName('tspan')
-        tspan[19].firstChild.data = age_data
+        tspan[18].firstChild.data = age_data
         f.write(svg.toxml('utf-8').decode('utf-8'))
 
 
-def svg_overwrite_bottom(filename, commit_data, star_data, repo_data, contrib_data, follower_data, loc_data):
+def svg_overwrite_bottom(filename, commit_data, star_data, repo_data, contrib_data, follower_data, loc_data, streak_data, org_data):
     """
     Update GitHub stats in the bottom profile SVG segment.
     """
@@ -368,6 +368,8 @@ def svg_overwrite_bottom(filename, commit_data, star_data, repo_data, contrib_da
         tspan[18].firstChild.data = loc_data[2]
         tspan[19].firstChild.data = loc_data[0] + '++'
         tspan[20].firstChild.data = loc_data[1] + '--'
+        tspan[22].firstChild.data = streak_data
+        tspan[24].firstChild.data = org_data
         f.write(svg.toxml('utf-8').decode('utf-8'))
 
 
@@ -429,6 +431,69 @@ def follower_getter(username):
     return int(request.json()['data']['user']['followers']['totalCount'])
 
 
+def best_streak_getter(username):
+    """
+    Returns the length of my longest contribution streak ever, in days.
+    Walks every year I have contributed in, because the API only allows queries spanning up to one year.
+    """
+    years_query = '''
+    query($login: String!) {
+        user(login: $login) {
+            contributionsCollection {
+                contributionYears
+            }
+        }
+    }'''
+    year_query = '''
+    query($login: String!, $start_date: DateTime!, $end_date: DateTime!) {
+        user(login: $login) {
+            contributionsCollection(from: $start_date, to: $end_date) {
+                contributionCalendar {
+                    weeks {
+                        contributionDays {
+                            date
+                            contributionCount
+                        }
+                    }
+                }
+            }
+        }
+    }'''
+    query_count('best_streak_getter')
+    request = simple_request(best_streak_getter.__name__, years_query, {'login': username})
+    years = request.json()['data']['user']['contributionsCollection']['contributionYears']
+    counts = {}
+    for year in years:
+        query_count('best_streak_getter')
+        variables = {'login': username, 'start_date': str(year) + '-01-01T00:00:00Z', 'end_date': str(year) + '-12-31T23:59:59Z'}
+        request = simple_request(best_streak_getter.__name__, year_query, variables)
+        weeks = request.json()['data']['user']['contributionsCollection']['contributionCalendar']['weeks']
+        for week in weeks:
+            for day in week['contributionDays']:
+                if day['date'].startswith(str(year)): # the calendar is made of whole weeks, so drop the days spilling over from the neighbouring years
+                    counts[day['date']] = day['contributionCount']
+    best, run, previous = 0, 0, None
+    for date in sorted(counts):
+        if counts[date] == 0:
+            continue
+        day = datetime.date.fromisoformat(date)
+        run = run + 1 if previous is not None and day - previous == datetime.timedelta(days=1) else 1
+        best, previous = max(best, run), day
+    return best
+
+
+def org_getter(username):
+    """
+    Returns the number of public organizations I belong to
+    (REST on purpose: GraphQL would also count private memberships, since the token is mine)
+    """
+    query_count('org_getter')
+    request = requests.get('https://api.github.com/users/' + username + '/orgs?per_page=100', headers=HEADERS)
+    if request.status_code == 200:
+        return len(request.json())
+    raise Exception(org_getter.__name__, ' has failed with a', request.status_code, request.text, QUERY_COUNT)
+
+
 def query_count(funct_id):
     """
     Counts how many times the GitHub GraphQL API is called
@@ -477,6 +542,8 @@ if __name__ == '__main__':
     repo_data, repo_time = perf_counter(graph_repos_stars, 'repos', ['OWNER'])
     contrib_data, contrib_time = perf_counter(graph_repos_stars, 'repos', ['OWNER', 'COLLABORATOR', 'ORGANIZATION_MEMBER'])
     follower_data, follower_time = perf_counter(follower_getter, USER_NAME)
+    streak_data, streak_time = perf_counter(best_streak_getter, USER_NAME)
+    org_data, org_time = perf_counter(org_getter, USER_NAME)
 
     # if OWNER_ID == {'id': 'MDQ6VXNlcjU3MzMxMTM0'}: # only calculate for user Andrew6rant
     #     archived_data = add_archive()
@@ -490,6 +557,9 @@ if __name__ == '__main__':
     repo_data = formatter('my repositories', repo_time, repo_data, 2)
     contrib_data = formatter('contributed repos', contrib_time, contrib_data, 2)
     follower_data = formatter('follower counter', follower_time, follower_data, 4)
+    streak_data = formatter('best streak', streak_time, streak_data)
+    org_data = formatter('public orgs', org_time, org_data, 2)
+    streak_data = '{:,} day{}'.format(streak_data, format_plural(streak_data)).ljust(10)
 
     for index in range(len(total_loc)-1): total_loc[index] = '{:,}'.format(total_loc[index]) # format added, deleted, and total LOC
 
@@ -497,13 +567,13 @@ if __name__ == '__main__':
         svg_overwrite_top(f'docs/{theme}_mode_top.svg', age_data)
         svg_overwrite_bottom(
             f'docs/{theme}_mode_bottom.svg',
-            commit_data, star_data, repo_data, contrib_data, follower_data, total_loc[:-1],
+            commit_data, star_data, repo_data, contrib_data, follower_data, total_loc[:-1], streak_data, org_data,
         )
 
     # move cursor to override 'Calculation times:' with 'Total function time:' and the total function time, then move cursor back
-    print('\033[F\033[F\033[F\033[F\033[F\033[F\033[F\033[F',
-        '{:<21}'.format('Total function time:'), '{:>11}'.format('%.4f' % (user_time + age_time + loc_time + commit_time + star_time + repo_time + contrib_time)),
-        ' s \033[E\033[E\033[E\033[E\033[E\033[E\033[E\033[E', sep='')
+    print('\033[F\033[F\033[F\033[F\033[F\033[F\033[F\033[F\033[F\033[F',
+        '{:<21}'.format('Total function time:'), '{:>11}'.format('%.4f' % (user_time + age_time + loc_time + commit_time + star_time + repo_time + contrib_time + streak_time + org_time)),
+        ' s \033[E\033[E\033[E\033[E\033[E\033[E\033[E\033[E\033[E\033[E', sep='')
 
     print('Total GitHub GraphQL API calls:', '{:>3}'.format(sum(QUERY_COUNT.values())))
     for funct_name, count in QUERY_COUNT.items(): print('{:<28}'.format('   ' + funct_name + ':'), '{:>6}'.format(count))
