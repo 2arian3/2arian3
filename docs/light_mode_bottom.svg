@@ -21,9 +21,9 @@ text, tspan {white-space: pre;}
 <text x="370" y="30" fill="#333333">
     <tspan x="370" y="30" class="keyColor">GitHub Stats</tspan>:
     <tspan x="370" y="50">————————————</tspan>
-    <tspan x="370" y="70" class="keyColor">Repos</tspan>: <tspan class="valueColor">40</tspan> {<tspan class="keyColor">Contributed</tspan>: <tspan class="valueColor">112</tspan>}  | <tspan class="keyColor">Commits</tspan>: <tspan class="valueColor">1,097  </tspan>| <tspan class="keyColor">Stars</tspan>: <tspan class="valueColor">98</tspan>
-    <tspan x="370" y="90" class="keyColor">Followers</tspan>: <tspan class="valueColor">69  </tspan>| <tspan class="keyColor">LoC</tspan>: <tspan class="valueColor">1,840,961</tspan> (<tspan class="addColor">1,992,566++</tspan>, <tspan class="delColor">151,605--</tspan>)
-    <tspan x="370" y="110" class="keyColor">Best Streak</tspan>: <tspan class="valueColor">89 days   </tspan>| <tspan class="keyColor">Orgs</tspan>: <tspan class="valueColor">5 </tspan>
+    <tspan x="370" y="70" class="keyColor">Repos</tspan>: <tspan class="valueColor">40</tspan> {<tspan class="keyColor">Contributed</tspan>: <tspan class="valueColor">112</tspan>}  | <tspan class="keyColor">Commits</tspan>: <tspan class="valueColor">1,121  </tspan>| <tspan class="keyColor">Stars</tspan>: <tspan class="valueColor">98</tspan>
+    <tspan x="370" y="90" class="keyColor">Followers</tspan>: <tspan class="valueColor">69  </tspan>| <tspan class="keyColor">LoC</tspan>: <tspan class="valueColor">1,849,641</tspan> (<tspan class="addColor">2,001,362++</tspan>, <tspan class="delColor">151,721--</tspan>)
+    <tspan x="370" y="110" class="keyColor">Best Streak</tspan>: <tspan class="valueColor">131 days  </tspan>| <tspan class="keyColor">Orgs</tspan>: <tspan class="valueColor">5 </tspan>
 </text>
 
 </svg>
