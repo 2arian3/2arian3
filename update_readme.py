@@ -9,7 +9,8 @@ import hashlib
 
 HEADERS = {'authorization': 'token '+ os.environ['ACCESS_TOKEN']}
 USER_NAME = os.environ['USER_NAME']
-QUERY_COUNT = {'user_getter': 0, 'follower_getter': 0, 'graph_repos_stars': 0, 'recursive_loc': 0, 'graph_commits': 0, 'loc_query': 0, 'best_streak_getter': 0, 'org_getter': 0}
+QUERY_COUNT = {'user_getter': 0, 'follower_getter': 0, 'graph_repos_stars': 0, 'recursive_loc': 0, 'graph_commits': 0, 'loc_query': 0, 'best_streak_getter': 0, 'org_getter': 0, 'vllm_pr_getter': 0}
+VLLM_REPO = 'vllm-project/vllm'
 GRAPHQL_URL = 'https://api.github.com/graphql'
 RETRYABLE_STATUS_CODES = {502, 503, 504}
 MAX_RETRIES = 5
@@ -354,7 +355,7 @@ def svg_overwrite_top(filename, age_data):
         f.write(svg.toxml('utf-8').decode('utf-8'))
 
 
-def svg_overwrite_bottom(filename, commit_data, star_data, repo_data, contrib_data, follower_data, loc_data, streak_data, org_data):
+def svg_overwrite_bottom(filename, commit_data, star_data, repo_data, contrib_data, follower_data, loc_data, streak_data, org_data, vllm_data):
     """
     Update GitHub stats in the bottom profile SVG segment.
     """
@@ -371,6 +372,8 @@ def svg_overwrite_bottom(filename, commit_data, star_data, repo_data, contrib_da
         tspan[20].firstChild.data = loc_data[1] + '--'
         tspan[22].firstChild.data = streak_data
         tspan[24].firstChild.data = org_data
+        tspan[26].firstChild.data = vllm_data[0]
+        tspan[27].firstChild.data = vllm_data[1]
         f.write(svg.toxml('utf-8').decode('utf-8'))
 
 
@@ -495,6 +498,26 @@ def org_getter(username):
     raise Exception(org_getter.__name__, ' has failed with a', request.status_code, request.text, QUERY_COUNT)
 
 
+def vllm_pr_getter(username):
+    """
+    Returns how many of my pull requests to vLLM are merged, and how many are still open
+    """
+    query_count('vllm_pr_getter')
+    query = '''
+    query($merged: String!, $open: String!) {
+        merged: search(query: $merged, type: ISSUE) {
+            issueCount
+        }
+        open: search(query: $open, type: ISSUE) {
+            issueCount
+        }
+    }'''
+    prs = 'repo:' + VLLM_REPO + ' is:pr author:' + username
+    request = simple_request(vllm_pr_getter.__name__, query, {'merged': prs + ' is:merged', 'open': prs + ' is:open'})
+    data = request.json()['data']
+    return data['merged']['issueCount'], data['open']['issueCount']
+
+
 def query_count(funct_id):
     """
     Counts how many times the GitHub GraphQL API is called
@@ -545,6 +568,7 @@ if __name__ == '__main__':
     follower_data, follower_time = perf_counter(follower_getter, USER_NAME)
     streak_data, streak_time = perf_counter(best_streak_getter, USER_NAME)
     org_data, org_time = perf_counter(org_getter, USER_NAME)
+    vllm_data, vllm_time = perf_counter(vllm_pr_getter, USER_NAME)
 
     # if OWNER_ID == {'id': 'MDQ6VXNlcjU3MzMxMTM0'}: # only calculate for user Andrew6rant
     #     archived_data = add_archive()
@@ -561,6 +585,8 @@ if __name__ == '__main__':
     streak_data = formatter('best streak', streak_time, streak_data)
     org_data = formatter('public orgs', org_time, org_data, 2)
     streak_data = '{:,} day{}'.format(streak_data, format_plural(streak_data)).ljust(10)
+    vllm_data = formatter('vllm PRs', vllm_time, vllm_data)
+    vllm_data = ('{:,} merged '.format(vllm_data[0]), '{:,} open'.format(vllm_data[1]))
 
     for index in range(len(total_loc)-1): total_loc[index] = '{:,}'.format(total_loc[index]) # format added, deleted, and total LOC
 
@@ -568,13 +594,13 @@ if __name__ == '__main__':
         svg_overwrite_top(f'docs/{theme}_mode_top.svg', age_data)
         svg_overwrite_bottom(
             f'docs/{theme}_mode_bottom.svg',
-            commit_data, star_data, repo_data, contrib_data, follower_data, total_loc[:-1], streak_data, org_data,
+            commit_data, star_data, repo_data, contrib_data, follower_data, total_loc[:-1], streak_data, org_data, vllm_data,
         )
 
     # move cursor to override 'Calculation times:' with 'Total function time:' and the total function time, then move cursor back
-    print('\033[F\033[F\033[F\033[F\033[F\033[F\033[F\033[F\033[F\033[F',
-        '{:<21}'.format('Total function time:'), '{:>11}'.format('%.4f' % (user_time + age_time + loc_time + commit_time + star_time + repo_time + contrib_time + streak_time + org_time)),
-        ' s \033[E\033[E\033[E\033[E\033[E\033[E\033[E\033[E\033[E\033[E', sep='')
+    print('\033[F\033[F\033[F\033[F\033[F\033[F\033[F\033[F\033[F\033[F\033[F',
+        '{:<21}'.format('Total function time:'), '{:>11}'.format('%.4f' % (user_time + age_time + loc_time + commit_time + star_time + repo_time + contrib_time + streak_time + org_time + vllm_time)),
+        ' s \033[E\033[E\033[E\033[E\033[E\033[E\033[E\033[E\033[E\033[E\033[E', sep='')
 
     print('Total GitHub GraphQL API calls:', '{:>3}'.format(sum(QUERY_COUNT.values())))
     for funct_name, count in QUERY_COUNT.items(): print('{:<28}'.format('   ' + funct_name + ':'), '{:>6}'.format(count))

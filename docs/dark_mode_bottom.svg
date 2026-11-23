@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" font-family="Andale Mono,AndaleMono,Consolas,monospace" width="975px" height="150px" font-size="16px">
+<?xml version="1.0" encoding="utf-8"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" font-family="Andale Mono,AndaleMono,Consolas,monospace" width="975px" height="170px" font-size="16px">
 <style>
 .keyColor {fill: #ffa657;}
 .valueColor {fill: #a5d6ff;}
@@ -8,7 +8,7 @@
 text, tspan {white-space: pre;}
 </style>
 
-<path d="M 0,0 H 970 V 135 Q 970,150 955,150 H 15 Q 0,150 0,135 Z" fill="#161b22"/>
+<path d="M 0,0 H 970 V 155 Q 970,170 955,170 H 15 Q 0,170 0,155 Z" fill="#161b22"/>
 
 <text x="15" y="0" fill="#c9d1d9" class="ascii">
     <tspan x="15" y="10">       :-**++#####%%%%%#*+=       </tspan>
@@ -24,6 +24,7 @@ text, tspan {white-space: pre;}
     <tspan x="370" y="70" class="keyColor">Repos</tspan>: <tspan class="valueColor">40</tspan> {<tspan class="keyColor">Contributed</tspan>: <tspan class="valueColor">112</tspan>}  | <tspan class="keyColor">Commits</tspan>: <tspan class="valueColor">1,369  </tspan>| <tspan class="keyColor">Stars</tspan>: <tspan class="valueColor">99</tspan>
     <tspan x="370" y="90" class="keyColor">Followers</tspan>: <tspan class="valueColor">68  </tspan>| <tspan class="keyColor">LoC</tspan>: <tspan class="valueColor">1,914,885</tspan> (<tspan class="addColor">2,071,290++</tspan>, <tspan class="delColor">156,405--</tspan>)
     <tspan x="370" y="110" class="keyColor">Best Streak</tspan>: <tspan class="valueColor">92 days   </tspan>| <tspan class="keyColor">Orgs</tspan>: <tspan class="valueColor">5 </tspan>
+    <tspan x="370" y="130" class="keyColor">vLLM PRs</tspan>: <tspan class="valueColor">3 merged </tspan>| <tspan class="valueColor">3 open</tspan>
 </text>
 
 </svg>
