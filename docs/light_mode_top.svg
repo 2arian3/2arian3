@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" font-family="Andale Mono,AndaleMono,Consolas,monospace" width="975px" height="254px" font-size="16px">
+<?xml version="1.0" encoding="utf-8"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" font-family="Andale Mono,AndaleMono,Consolas,monospace" width="975px" height="274px" font-size="16px">
 <style>
 .keyColor {fill: #ff7f50;}
 .valueColor {fill: #007acc;}
@@ -8,7 +8,7 @@
 text, tspan {white-space: pre;}
 </style>
 
-<path d="M 15,0 H 955 Q 970,0 970,15 V 254 H 0 V 15 Q 0,0 15,0 Z" fill="#ffffff"/>
+<path d="M 15,0 H 955 Q 970,0 970,15 V 274 H 0 V 15 Q 0,0 15,0 Z" fill="#ffffff"/>
 
 <text x="15" y="0" fill="#333333" class="ascii">
     <tspan x="15" y="30">          *##%%%%@@@%%%           </tspan>
@@ -23,21 +23,22 @@ text, tspan {white-space: pre;}
     <tspan x="15" y="210">  %#--:=*+#*+=:.=+*+=%##**+=+@@@  </tspan>
     <tspan x="15" y="230">  -%:::::::::=::-*========---%@+- </tspan>
     <tspan x="15" y="250"> +*=:::::::::::::===----::---*++#+</tspan>
+    <tspan x="15" y="270"> --::::::::::*##@%+==--====++=*== </tspan>
 </text>
 
-<text x="370" y="30" fill="#333333">
-    <tspan x="370" y="30">Arian Boukani</tspan>
-    <tspan x="370" y="50">—————————————</tspan>
-    <tspan x="370" y="70" class="keyColor">Uptime</tspan>: <tspan class="valueColor">26 years, 4 months, 14 days</tspan>
-    <tspan x="370" y="90" class="keyColor">Location</tspan>: <tspan class="valueColor">Toronto, Ontario, Canada</tspan>
-    <tspan x="370" y="110" class="keyColor">Role</tspan>: <tspan class="valueColor">Software Engineering Data Trainer @ Cohere</tspan>
-    <tspan x="370" y="130" class="keyColor">Interests</tspan>: <tspan class="valueColor">Cloud Computing, Agentic Systems, ML Systems</tspan>
+<text x="370" y="50" fill="#333333">
+    <tspan x="370" y="50">Arian Boukani</tspan>
+    <tspan x="370" y="70">—————————————</tspan>
+    <tspan x="370" y="90" class="keyColor">Uptime</tspan>: <tspan class="valueColor">26 years, 4 months, 14 days</tspan>
+    <tspan x="370" y="110" class="keyColor">Location</tspan>: <tspan class="valueColor">Toronto, Ontario, Canada</tspan>
+    <tspan x="370" y="130" class="keyColor">Role</tspan>: <tspan class="valueColor">Software Engineering Data Trainer @ Cohere</tspan>
+    <tspan x="370" y="150" class="keyColor">Interests</tspan>: <tspan class="valueColor">Cloud Computing, Agentic Systems, ML Systems</tspan>
     
-    <tspan x="370" y="170" class="keyColor">Languages</tspan>.<tspan class="keyColor">Programming</tspan>: <tspan class="valueColor">Python, C++, Go</tspan>
-    <tspan x="370" y="190" class="keyColor">Languages</tspan>.<tspan class="keyColor">Real</tspan>: <tspan class="valueColor">English, Kurdish, Persian, German (newbie)</tspan>
+    <tspan x="370" y="190" class="keyColor">Languages</tspan>.<tspan class="keyColor">Programming</tspan>: <tspan class="valueColor">Python, C++, Go</tspan>
+    <tspan x="370" y="210" class="keyColor">Languages</tspan>.<tspan class="keyColor">Real</tspan>: <tspan class="valueColor">English, Kurdish, Persian, German (newbie)</tspan>
     
-    <tspan x="370" y="230" class="keyColor">Contact</tspan>:
-    <tspan x="370" y="250">———————</tspan>
+    <tspan x="370" y="250" class="keyColor">Contact</tspan>:
+    <tspan x="370" y="270">———————</tspan>
 </text>
 
 </svg>
