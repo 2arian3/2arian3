@@ -347,33 +347,35 @@ def stars_counter(data):
 def svg_overwrite_top(filename, age_data):
     """
     Update the uptime value in the top profile SVG segment.
+    Indexes the info <text> (the second one), so the ASCII art can change rows without moving these.
     """
     svg = minidom.parse(filename)
     with open(filename, mode='w', encoding='utf-8') as f:
-        tspan = svg.getElementsByTagName('tspan')
-        tspan[18].firstChild.data = age_data
+        tspan = svg.getElementsByTagName('text')[1].getElementsByTagName('tspan')
+        tspan[3].firstChild.data = age_data
         f.write(svg.toxml('utf-8').decode('utf-8'))
 
 
 def svg_overwrite_bottom(filename, commit_data, star_data, repo_data, contrib_data, follower_data, loc_data, streak_data, org_data, vllm_data):
     """
     Update GitHub stats in the bottom profile SVG segment.
+    Indexes the stats <text> (the second one), so the ASCII art can change rows without moving these.
     """
     svg = minidom.parse(filename)
     with open(filename, mode='w', encoding='utf-8') as f:
-        tspan = svg.getElementsByTagName('tspan')
-        tspan[8].firstChild.data = repo_data
-        tspan[10].firstChild.data = contrib_data
-        tspan[12].firstChild.data = commit_data
-        tspan[14].firstChild.data = star_data
-        tspan[16].firstChild.data = follower_data
-        tspan[18].firstChild.data = loc_data[2]
-        tspan[19].firstChild.data = loc_data[0] + '++'
-        tspan[20].firstChild.data = loc_data[1] + '--'
-        tspan[22].firstChild.data = streak_data
-        tspan[24].firstChild.data = org_data
-        tspan[26].firstChild.data = vllm_data[0]
-        tspan[27].firstChild.data = vllm_data[1]
+        tspan = svg.getElementsByTagName('text')[1].getElementsByTagName('tspan')
+        tspan[3].firstChild.data = repo_data
+        tspan[5].firstChild.data = contrib_data
+        tspan[7].firstChild.data = commit_data
+        tspan[9].firstChild.data = star_data
+        tspan[11].firstChild.data = follower_data
+        tspan[13].firstChild.data = loc_data[2]
+        tspan[14].firstChild.data = loc_data[0] + '++'
+        tspan[15].firstChild.data = loc_data[1] + '--'
+        tspan[17].firstChild.data = streak_data
+        tspan[19].firstChild.data = org_data
+        tspan[21].firstChild.data = vllm_data[0]
+        tspan[22].firstChild.data = vllm_data[1]
         f.write(svg.toxml('utf-8').decode('utf-8'))
 
 
